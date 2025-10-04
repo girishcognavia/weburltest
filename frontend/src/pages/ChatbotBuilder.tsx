@@ -13,10 +13,10 @@ interface ChatbotBuilderProps {
 export default function ChatbotBuilder({ websiteUrl, onBack }: ChatbotBuilderProps) {
 
   const [step, setStep] = useState<Step>('processing');
-  const [chatbotId, setChatbotId] = useState('');
+  const [, setChatbotId] = useState('');
   const [embedCode, setEmbedCode] = useState('');
   const [previewUrl, setPreviewUrl] = useState('');
-  const [processing, setProcessing] = useState(true);
+  const [, setProcessing] = useState(true);
 
   useEffect(() => {
     if (websiteUrl) {
