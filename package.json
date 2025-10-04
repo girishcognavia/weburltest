@@ -1,0 +1,48 @@
+{
+  "name": "website-preview-chatbot-system",
+  "version": "1.0.0",
+  "description": "Complete website preview system with chatbot overlay for instant testing",
+  "private": true,
+  "workspaces": [
+    "services/proxy-service",
+    "services/screenshot-service",
+    "services/api-service",
+    "frontend",
+    "shared"
+  ],
+  "scripts": {
+    "dev": "concurrently \"npm run dev:proxy\" \"npm run dev:screenshot\" \"npm run dev:api\" \"npm run dev:frontend\"",
+    "dev:proxy": "npm run dev --workspace=services/proxy-service",
+    "dev:screenshot": "npm run dev --workspace=services/screenshot-service",
+    "dev:api": "npm run dev --workspace=services/api-service",
+    "dev:frontend": "npm run dev --workspace=frontend",
+    "build": "npm run build --workspaces",
+    "test": "npm run test --workspaces",
+    "lint": "npm run lint --workspaces",
+    "docker:build": "docker-compose build",
+    "docker:up": "docker-compose up -d",
+    "docker:down": "docker-compose down",
+    "docker:logs": "docker-compose logs -f"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=9.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cognavia/website-preview-chatbot.git"
+  },
+  "keywords": [
+    "website-preview",
+    "chatbot",
+    "iframe-bypass",
+    "proxy",
+    "screenshot",
+    "playwright"
+  ],
+  "author": "Cognavia",
+  "license": "MIT"
+}
